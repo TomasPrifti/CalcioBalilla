@@ -1,15 +1,20 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
-$view_dir = '/views/';
 
-switch ($request) {
+define('ROOTPATH', __DIR__);
+
+require_once ROOTPATH . '/Controllers/MainController.php';
+
+$main_controller = new MainController();
+
+switch ($_SERVER['REQUEST_URI']) {
 	case '':
 	case '/':
 	case '/home':
-		require_once __DIR__ . $view_dir . 'home.php';
+		$main_controller->get_view();
 		break;
 
 	default:
+		echo 'ciao';
 		http_response_code(404);
-		require_once __DIR__ . $view_dir . '404.php';
+		$main_controller->get_view('404');
 }
