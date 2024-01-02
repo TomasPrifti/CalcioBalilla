@@ -13,7 +13,7 @@
 
 		<div>
 			<h2>Inserisci una nuova partita</h2>
-			<form action="/" method="post">
+			<form action="/create" method="post">
 				<label>Data: <input type="date" name="date" required></label>
 				<label>Squadra 1: <input type="text" name="team1_person1" required> - <input type="text" name="team1_person2" required></label>
 				<label>Squadra 2: <input type="text" name="team2_person1" required> - <input type="text" name="team2_person2" required></label>
