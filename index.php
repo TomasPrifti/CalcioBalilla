@@ -7,17 +7,16 @@ require_once ROOTPATH . '/Controllers/MainController.php';
 require_once ROOTPATH . '/Models/GameModel.php';
 
 $main_controller = new MainController();
-$request_uri = $_SERVER['REQUEST_URI'];
 
-if (!empty($_POST) && '/create' === $request_uri) {
+if (!empty($_POST) && 'create' === $_POST['action']) {
+	unset($_POST['action']);
 	$main_controller->create_game();
 }
 
-switch ($request_uri) {
+switch ($_SERVER['REQUEST_URI']) {
 	case '':
 	case '/':
 	case '/home':
-	case '/create':
 		$main_controller->get_view();
 		break;
 
