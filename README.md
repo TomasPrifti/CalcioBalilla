@@ -1,7 +1,8 @@
 # Project CalcioBalilla
 
 ## Deploy
-In order to connect to the database, you need to configure the `env.php` file with the data necessary.<br>
+In order to connect to the database, you need to configure the `.env` file with the data necessary.<br>
+Make a file called `.env` starting from the `.env.example` and then configure.<br>
 Below, there is the query that has to be executed for the <strong>FIRST</strong> deploy of the project:
 
 ```sql
