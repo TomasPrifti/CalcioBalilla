@@ -16,13 +16,16 @@ CREATE TABLE games (
     result VARCHAR(255) NOT NULL
 );
 ```
+## Dependencies
+To install all the dependencies, you need to execute the following commands:
+```bash
+composer install
+npm ci
+npm run build
+```
 
 ### Style
-For the style, there is a file `src/style.scss` that has to be compiled with the following command:
-
-```bash
-sass src/style.scss build/style.css
-```
+For the style, the entrypoint is the file `resources/css/app.css` that is compiled using `vite`.
 
 # Based on Laravel Framework
 
