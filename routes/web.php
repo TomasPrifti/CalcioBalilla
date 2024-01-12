@@ -17,4 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home');
 Route::view('/home', 'home');
 
+Route::get('/allGames', [MainController::class, 'all_games']);
+
 Route::post('/createGame', [MainController::class, 'create_game']);

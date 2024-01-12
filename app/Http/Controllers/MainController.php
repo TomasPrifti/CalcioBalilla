@@ -20,8 +20,12 @@ class MainController extends BaseController {
 		$game->team2_person1 = $request->team2_person1;
 		$game->team2_person2 = $request->team2_person2;
 		$game->result = $request->result;
-        $game->save();
+		$game->save();
 
 		return redirect('/home');
+	}
+
+	public function all_games() {
+		return view('games', array('data' => Game::all()));
 	}
 }

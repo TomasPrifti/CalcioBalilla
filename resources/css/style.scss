@@ -27,3 +27,6 @@ input[type="submit"] {
 	@apply mt-6 mx-auto text-lg text-white bg-blue-500 cursor-pointer hover:bg-blue-700;
 }
 
+.button {
+	@apply py-3 px-6 mt-6 mx-auto block w-fit text-xl text-white bg-blue-500 cursor-pointer rounded-lg border border-black hover:bg-blue-700;
+}

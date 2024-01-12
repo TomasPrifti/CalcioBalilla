@@ -19,8 +19,9 @@
 				<label>Squadra 1: <input type="text" name="team1_person1" required> - <input type="text" name="team1_person2" required></label>
 				<label>Squadra 2: <input type="text" name="team2_person1" required> - <input type="text" name="team2_person2" required></label>
 				<label>Risultato: <input type="text" name="result" pattern="\d+-\d+" title="Formato valido: x-x" required></label>
-				<input type="submit" value="Inserisci Partita">
+				<input type="submit" value="Inserisci partita">
 			</form>
+			<a class="button" href="/allGames">Tutte le partite</a>
 		</div>
 	</body>
 
