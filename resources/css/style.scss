@@ -19,7 +19,7 @@ label {
 	@apply block mb-4 text-lg;
 }
 
-input {
+input, select {
 	@apply mx-4 p-4 text-base border border-black rounded-lg;
 }
 

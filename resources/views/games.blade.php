@@ -1,3 +1,14 @@
+<?php
+/**
+ * List of all games played.
+ *
+ * @param array<Game>
+*/
+$games = $data;
+
+// TODO: Change player's ids with their names.
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +23,12 @@
 		<h1>Calcio Balilla</h1>
 
 		<div>
-			@foreach ($data as $game)
+			@foreach ($games as $game)
 				<div>
 					<p>Partita n° {{ $game->id }}</p>
 					<p>Data: {{ $game->date }}</p>
-					<p>Squadra 1: {{ $game->team1_person1 }} e {{ $game->team1_person2 }}</p>
-					<p>Squadra 2: {{ $game->team2_person1 }} e {{ $game->team2_person2 }}</p>
+					<p>Squadra 1: {{ $game->team1_player1 }} e {{ $game->team1_player2 }}</p>
+					<p>Squadra 2: {{ $game->team2_player1 }} e {{ $game->team2_player2 }}</p>
 					<p>Risultato: {{ $game->result }}</p>
 				</div>
 			@endforeach

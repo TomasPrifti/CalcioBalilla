@@ -6,16 +6,30 @@ Make a file called `.env` starting from the `.env.example` and then configure.<b
 Below, there is the query that has to be executed for the <strong>FIRST</strong> deploy of the project:
 
 ```sql
+CREATE TABLE players (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
 CREATE TABLE games (
     id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE NOT NULL,
-    team1_person1 VARCHAR(255) NOT NULL,
-    team1_person2 VARCHAR(255) NOT NULL,
-    team2_person1 VARCHAR(255) NOT NULL,
-    team2_person2 VARCHAR(255) NOT NULL,
-    result VARCHAR(255) NOT NULL
+    team1_player1 INT NOT NULL,
+    team1_player2 INT NOT NULL,
+    team2_player1 INT NOT NULL,
+    team2_player2 INT NOT NULL,
+    result VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_team1_player1 FOREIGN KEY (team1_player1) REFERENCES players(id),
+    CONSTRAINT fk_team1_player2 FOREIGN KEY (team1_player2) REFERENCES players(id),
+    CONSTRAINT fk_team2_player1 FOREIGN KEY (team2_player1) REFERENCES players(id),
+    CONSTRAINT fk_team2_player2 FOREIGN KEY (team2_player2) REFERENCES players(id)
 );
 ```
+
+```sql
+INSERT INTO `players`(`id`, `name`) VALUES (0, 'Player Name');
+```
+
 ## Dependencies
 To install all the dependencies, you need to execute the following commands:
 ```bash
