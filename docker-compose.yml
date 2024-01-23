@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database_mysql
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+      APP_ENV: production
+      DB_CONNECTION: mysql
+      DB_HOST: database_mysql
+      DB_PORT: 3306
+      DB_DATABASE: database-name
+      DB_USERNAME: database-user
+      DB_PASSWORD: database-password
+
+  database_mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: database-name
+      MYSQL_USER: database-user
+      MYSQL_PASSWORD: database-password
+      MYSQL_ROOT_PASSWORD: root-password
