@@ -9,10 +9,14 @@ RUN apt-get update && \
 	apt-get install -y \
 	libzip-dev \
 	unzip \
-	git
+	git \
+	default-mysql-client
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install PHP extensions
+RUN docker-php-ext-install mysqli pdo_mysql
 
 # Copy the project inside the container
 COPY . /var/www/html
