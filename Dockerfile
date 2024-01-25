@@ -10,7 +10,8 @@ RUN apt-get update && \
 	libzip-dev \
 	unzip \
 	git \
-	default-mysql-client
+	default-mysql-client \
+	npm
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -24,6 +25,8 @@ COPY . /var/www/html
 # Execute commands
 RUN cd /var/www/html && \
 	composer install --no-dev --optimize-autoloader && \
+	npm ci && \
+	npm run build && \
 	php artisan config:cache && \
 	php artisan route:cache && \
 	sed -i 's|DocumentRoot /var/www/html|DocumentRoot ${APACHE_DOCUMENT_ROOT}|' /etc/apache2/sites-available/000-default.conf
